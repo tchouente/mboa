@@ -1,0 +1,142 @@
+
+
+Pour avoir les branches
+
+$ gitk --all &
+
+
+mon projet git
+Lien du td 
+https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html#add-and-commit-local-changes
+
+https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html
+
+
+
+ntchouen@ITEM-S104855 MINGW64 ~/my-sample-project (main)
+$ ls -liar
+total 32
+ 7599824371592547 -rw-r--r-- 1 ntchouen 1049089 6365 Oct 19 17:25 README.md
+ 9570149208620152 drwxr-xr-x 1 ntchouen 1049089    0 Oct 19 17:25 .git/
+  562949953579630 drwxr-xr-x 1 ntchouen 1049089    0 Nov 24 15:23 ../
+18858823440071245 drwxr-xr-x 1 ntchouen 1049089    0 Oct 19 17:25 ./
+
+git clone https://gitlab.com/gp_my-sample-project/my-sample-project.git
+
+git remote add origin https://gitlab.com/gp_my-sample-project/my-sample-project.git 
+pour dir git dans q'el répository distant  sera logé les fichiers en provenance du poste de travail 
+
+creer un fichier
+git add fichier
+get commit
+get push
+###############
+cd existing_repo
+git remote add origin https://gitlab.com/gp_my-sample-project/my-sample-project.git
+git branch -M main
+git push -uf origin main
+
+###############"
+
+Check the status:
+
+git status
+
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Your file’s name should appear in red, so git took notice of it! Now add it to the repository:
+
+git add <name of file>
+$ git add tata.txt
+Check the status again, your file’s name should have turned green:
+
+####################"
+Repeat step 1 for each file or folder you want to add. Or, to stage all files in the current directory and subdirectory, type git add ..
+git add .
+
+Stage and commit all changes
+As a shortcut, you can add all local changes to staging and commit them with one command:
+
+git commit -a -m "COMMENT TO DESCRIBE THE INTENTION OF THE COMMIT"
+
+##########
+Send changes to GitLab.com
+To push all local changes to the remote repository:
+
+git push <remote> <name-of-branch>
+For example, to push your local commits to the main branch of the origin remote:
+git push origin main
+
+To create a feature branch:
+git checkout -b <name-of-branch>
+
+
+ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   tata.txt
+		
+git status
+
+Commit (save) your file to the repository:
+
+git commit -m "DESCRIBE COMMIT IN A FEW WORDS"
+
+Now you can push (send) your changes (in the branch <branch-name>) to GitLab (the Git remote named ‘origin’):
+
+$ git push origin main
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 374 bytes | 374.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+To gitlab.com:gp_my-sample-project/my-sample-project.git
+   bf7236f..55b65ab  main -> main
+   
+git push origin <branch-name>
+
+ntchouen@ITEM-S104855 MINGW64 ~/my-sample-project (main)
+$ pwd
+/c/Users/ntchouen/GIT_TEST/sample-project-nestor
+$ ls
+README.md  fichiertravail0  fork-sample-project.png  hello_world.md  simple_texte
+
+
+Switch to a branch
+All work in Git is done in a branch. You can switch between branches to see the state of the files and work in that branch.
+
+To switch to an existing branch:
+
+git checkout <name-of-branch>
+
+For example, to change to the main branch:
+
+git checkout main
+
+To commit the staged files:
+
+git commit -m "COMMENT TO DESCRIBE THE INTENTION OF THE COMMIT"
+
+Stage and commit all changes
+As a shortcut, you can add all local changes to staging and commit them with one command:
+
+git commit -a -m "COMMENT TO DESCRIBE THE INTENTION OF THE COMMIT"
+
+
+Delete all changes in the branch
+To discard all changes to tracked files:
+
+git checkout .
+
+This action removes changes to files, not the files themselves. Untracked (new) files do not change.
+
+Unstage all changes that have been added to the staging area
+To unstage (remove) all files that have not been committed:
+
+git reset
